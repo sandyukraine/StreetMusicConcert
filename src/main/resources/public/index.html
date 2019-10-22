@@ -1,0 +1,37 @@
+<!doctype html>
+<html ng-app="CitySearchModule">
+<head>
+    <title>Streetmusic Concert</title>
+    <style>
+        [ng\:cloak], [ng-cloak], .ng-cloak {
+            display: none;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="styles/CitySearch.css">
+</head>
+
+<body>
+<div class="wrapper text-center" ng-controller="CitySearchController">
+    <div class="text-wrapper">
+        <div>
+            Please, choose the city
+        </div>
+        <div class="search-wrapper">
+            <input type="text" class="input" ng-model="searchString" placeholder="enter city name">
+        </div>
+        <div class="result-wrapper" ng-repeat="city in cities | searchFilter: searchString">
+            <a ng-href="#/city/{{city.name}}">{{city.name}}</a>
+        </div>
+    </div>
+</div>
+
+<div ng-controller="Cities">
+    <p>City ID is {{city.id}}</p>
+    <p>City name is {{city.name}}</p>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+<script src="js/City/CityController.js"></script>
+</body>
+</html>
